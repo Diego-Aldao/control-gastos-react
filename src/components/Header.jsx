@@ -1,14 +1,24 @@
 import React from "react";
 import NuevoPresupuesto from "./NuevoPresupuesto";
 
-function Header({ presupuesto, setPresupuesto }) {
+function Header({
+  presupuesto,
+  setPresupuesto,
+  esPresupuestoValido,
+  setEsPresupuestoValido,
+}) {
   return (
     <header>
       <h1>planificador de gastos</h1>
-      <NuevoPresupuesto
-        presupuesto={presupuesto}
-        setPresupuesto={setPresupuesto}
-      />
+      {esPresupuestoValido ? (
+        <p>Control presupuesto</p>
+      ) : (
+        <NuevoPresupuesto
+          presupuesto={presupuesto}
+          setPresupuesto={setPresupuesto}
+          setEsPresupuestoValido={setEsPresupuestoValido}
+        />
+      )}
     </header>
   );
 }
